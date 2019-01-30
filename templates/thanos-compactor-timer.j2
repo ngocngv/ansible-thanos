@@ -1,9 +1,0 @@
-[Unit]
-Description=Thanos compactor timer
-
-[Timer]
-OnBootSec={{ thanos_compactor_onboot_sec }}
-OnUnitActiveSec={{ thanos_compactor_onactive_sec }}
-
-[Install]
-WantedBy=timers.target
