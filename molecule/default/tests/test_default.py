@@ -9,10 +9,10 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize('file, content', [
-    ('/etc/defaults/thanos-query', '--log.level debug'),
-    ('/etc/defaults/thanos-sidecar', '--log.level debug'),
-    ('/etc/defaults/thanos-store', '--data-dir=/tmp'),
-    ('/etc/defaults/thanos-compactor', '--data-dir /tmp')
+    ('/etc/default/thanos-query', '--log.level debug'),
+    ('/etc/default/thanos-sidecar', '--log.level debug'),
+    ('/etc/default/thanos-store', '--data-dir=/tmp'),
+    ('/etc/default/thanos-compactor', '--data-dir /tmp')
 ])
 def test_defaults_file_exists(host, file, content):
     f = host.file(file)
