@@ -4,20 +4,28 @@
     src: thanos-query.j2
     dest: /etc/systemd/system/thanos-query.service
   register: query_systemd
-  notify: restart thanos-query
-
-- name: "Query: Reload systemd if thanos query changed"
-  systemd:
-    daemon_reload: yes
+  tags:
+    - query
+    - configuration
+  notify: 
+    - reload systemd daemon
+    - restart thanos-query
 
 - name: "Query: Add defaults file"
   template:
     src: thanos-query-defaults.j2
     dest: /etc/default/thanos-query
+  tags:
+    - query
+    - configuration
   notify: restart thanos-query
 
 - name: "Query: Ensure thanos-query is started"
   service:
     name: thanos-query
-    enabled: yes
+    enabled: true
+    daemon-reload: true
     state: started
+  tags:
+    - query
+    - startup
