@@ -4,20 +4,28 @@
     src: thanos-sidecar.j2
     dest: /etc/systemd/system/thanos-sidecar.service
   register: sidecar_systemd
-  notify: restart thanos-sidecar
-
-- name: "Sidecar: Reload systemd if thanos sidecar changed"
-  systemd:
-    daemon_reload: yes
+  tags:
+    - sidecar
+    - configuration
+  notify: 
+    - reload systemd daemon
+    - restart thanos-sidecar
 
 - name: "Sidecar: Add defaults file"
   template:
     src: thanos-sidecar-defaults.j2
     dest: /etc/default/thanos-sidecar
+  tags:
+    - sidecar
+    - configuration
   notify: restart thanos-sidecar
 
 - name: "Sidecar: Ensure thanos-sidecar is started"
   service:
     name: thanos-sidecar
-    enabled: yes
+    enabled: true
+    daemon-reload: true
     state: started
+  tags:
+    - sidecar
+    - startup
