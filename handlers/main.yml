@@ -19,13 +19,6 @@
     name: thanos-compactor
     state: restarted
 
-- name: restart thanos-compactor timer
-  systemd:
-    name: thanos-compactor.timer
-    daemon-reload: yes
-    state: restarted
-    enabled: true
-
 - name: restart thanos-store
   service:
     name: thanos-store
