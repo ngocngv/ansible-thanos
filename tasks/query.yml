@@ -6,7 +6,7 @@
   tags:
     - query
     - configuration
-  notify: 
+  notify:
     - reload systemd daemon
     - restart thanos-query
 

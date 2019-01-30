@@ -1,8 +1,9 @@
+---
 galaxy_info:
   author: James Bach
   description: A role for setting up and configuring Thanos, a Prometheus aggregator of sorts
   license: Apache 2.0
-  min_ansible_version: 2.4
+  min_ansible_version: 2.7
   platforms:
     - name: Ubuntu
       versions:

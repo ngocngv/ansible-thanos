@@ -5,6 +5,9 @@
     name: thanos
     state: latest
     cache_valid_time: 3600
+  tags:
+    - install
+    - skip_ansible_lint
 
 # Configure the query backend, systemd files, etc
 - name: validate that required variables are set
@@ -23,3 +26,5 @@
     name: prometheus
     system: true
     state: present
+  tags:
+    - configuration

@@ -6,7 +6,7 @@
   tags:
     - sidecar
     - configuration
-  notify: 
+  notify:
     - reload systemd daemon
     - restart thanos-sidecar
 

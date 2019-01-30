@@ -6,7 +6,7 @@
   tags:
     - compactor
     - configuration
-  notify: 
+  notify:
     - reload systemd daemon
     - restart thanos-compactor
 
