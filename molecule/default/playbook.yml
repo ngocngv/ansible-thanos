@@ -7,7 +7,9 @@
       thanos_sidecar_enabled: True
       thanos_query_enabled: True
       thanos_compactor_enabled: True
+      thanos_compactor_data_dir: /tmp
       thanos_store_enabled: True
       thanos_store_data_dir: /tmp
       thanos_s3_bucket_name: TEST
       thanos_s3_endpoint: TLDRBADENDPOINT.XXX
+      thanos_prometheus_data_dir: /tmp
