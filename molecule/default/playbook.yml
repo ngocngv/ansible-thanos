@@ -8,5 +8,6 @@
       thanos_query_enabled: True
       thanos_compactor_enabled: True
       thanos_store_enabled: True
+      thanos_store_data_dir: /tmp
       thanos_s3_bucket_name: TEST
       thanos_s3_endpoint: TLDRBADENDPOINT.XXX
