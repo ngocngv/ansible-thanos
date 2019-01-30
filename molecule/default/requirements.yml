@@ -1,0 +1,4 @@
+- src: git@github.com:transferwise/ansible-use_internal_apt_repository.git
+  scm: git
+  version: master
+  name: use_internal_apt_repository

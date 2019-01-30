@@ -1,5 +1,19 @@
 # Change Log
 
+## [V1.2.1](https://github.com/transferwise/ansible-thanos/tree/V1.2.1) (2019-01-28)
+[Full Changelog](https://github.com/transferwise/ansible-thanos/compare/v1.2.0...V1.2.1)
+
+**Merged pull requests:**
+
+- Thanos compactor retention periods [\#15](https://github.com/transferwise/ansible-thanos/pull/15) ([jalev](https://github.com/jalev))
+
+## [v1.2.0](https://github.com/transferwise/ansible-thanos/tree/v1.2.0) (2019-01-22)
+[Full Changelog](https://github.com/transferwise/ansible-thanos/compare/v1.1.0...v1.2.0)
+
+**Merged pull requests:**
+
+- OB-37: Updates thanos-sidecar config to v2 [\#14](https://github.com/transferwise/ansible-thanos/pull/14) ([jalev](https://github.com/jalev))
+
 ## [v1.1.0](https://github.com/transferwise/ansible-thanos/tree/v1.1.0) (2019-01-16)
 [Full Changelog](https://github.com/transferwise/ansible-thanos/compare/v1.0.0...v1.1.0)
 
