@@ -9,6 +9,21 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize('file, content', [
+    ('/etc/defaults/thanos-query', '--log.level debug'),
+    ('/etc/defaults/thanos-sidecar', '--log.level debug'),
+    ('/etc/defaults/thanos-store', '--data-dir=/tmp'),
+    ('/etc/defaults/thanos-compactor', '--data-dir /tmp')
+])
+def test_defaults_file_exists(host, file, content):
+    f = host.file(file)
+
+    assert f.exists
+    assert f.contains(content)
+    assert f.user == 'root'
+    assert f.group == 'root'
+
+
+@pytest.mark.parametrize('file, content', [
     ('/etc/systemd/system/thanos-query.service', 'thanos query'),
     ('/etc/systemd/system/thanos-query.service', 'THANOS_QUERY_CLUSTER_HTTP'),
     ('/etc/systemd/system/thanos-sidecar.service', 'thanos sidecar'),
@@ -18,7 +33,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     ('/etc/systemd/system/thanos-compactor.service', 'thanos compact'),
     ('/etc/systemd/system/thanos-compactor.service', 'THANOS_COMPACTOR_HTTP')
 ])
-def test_config_file_exists(host, file, content):
+def test_systemd_file_exists(host, file, content):
     f = host.file(file)
 
     assert f.exists
