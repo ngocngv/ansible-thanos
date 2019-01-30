@@ -5,6 +5,7 @@ ignore: |
   /home/circleci/project/venv/
   defaults*
   molecule*
+  .circleci*
 
 rules:
   braces:
