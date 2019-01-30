@@ -4,26 +4,36 @@
     src: thanos-store.j2
     dest: /etc/systemd/system/thanos-store.service
   register: store_systemd
-  notify: restart thanos-store
-
-- name: "Store: Reload systemd if thanos store changed"
-  systemd:
-    daemon_reload: yes
+  tags:
+    - store
+    - configuration
+  notify: 
+    - reload systemd daemon
+    - restart thanos-store
 
 - name: "Store: Add defaults file"
   template:
     src: thanos-store-defaults.j2
     dest: /etc/default/thanos-store
+  tags:
+    - store
+    - configuration
   notify: restart thanos-store
 
 - name: "Store: generate configuration file"
   template:
     src: thanos-s3-config.j2
     dest: "{{ thanos_store_config_file }}"
+  tags:
+    - store
+    - configuration
   notify: restart thanos-store
 
 - name: "Store: Ensure thanos-store is started"
   service:
     name: thanos-store
-    enabled: yes
+    enabled: true
     state: started
+  tags:
+    - store
+    - startup
