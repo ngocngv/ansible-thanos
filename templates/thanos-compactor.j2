@@ -11,5 +11,12 @@ EnvironmentFile=/etc/default/thanos-compactor
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=thanos-compactor
-ExecStart=/usr/bin/thanos compact $THANOS_COMPACTOR_CONFIG_FILE $THANOS_COMPACTOR_HTTP $THANOS_COMPACTOR_LOGGING $THANOS_COMPACTOR_DATA_DIR $THANOS_COMPACTOR_RETENTION --wait
+ExecStart=/usr/bin/thanos compact $THANOS_COMPACTOR_CONFIG_FILE \
+  $THANOS_COMPACTOR_HTTP \
+  $THANOS_COMPACTOR_LOGGING \
+  $THANOS_COMPACTOR_DATA_DIR \
+  $THANOS_COMPACTOR_RETENTION_RAW \
+  $THANOS_COMPACTOR_RETENTION_FIVE_MINUTES \
+  $THANOS_COMPACTOR_RETENTION_ONE_HOUR \
+  --wait
 Restart=always

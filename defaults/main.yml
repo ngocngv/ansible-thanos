@@ -4,11 +4,20 @@ thanos_sidecar_log_level: "debug"
 thanos_sidecar_grpc_port: 19091
 thanos_sidecar_http_port: 19191
 thanos_sidecar_cluster_port: 19391
+thanos_sidecar_config_file: "/etc/thanos-sidecar.yaml"
 
 thanos_compactor_log_level: "debug"
 thanos_compactor_http_port: 19192
 thanos_compactor_data_dir: ""
 thanos_compactor_config_file: "/etc/thanos-compactor.yaml"
+
+# Setting the following values to '0d' will disable them
+# How long to retain raw samples in the bucket:
+thanos_compactor_retention_raw: "0d"
+# How long to retain samples of resolution 1 (5m)
+thanos_compactor_retention_5m: "0d"
+# How long to retain samples of resolution 2 (1h)
+thanos_compactor_retention_1h: "0d"
 
 thanos_query_log_level: "debug"
 thanos_query_grpc_port: 19091

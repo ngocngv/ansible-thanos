@@ -1,7 +1,7 @@
-THANOS_SIDECAR_BUCKET_CONFIG="--s3.bucket={{ thanos_s3_bucket_name }} --s3.endpoint={{ thanos_s3_endpoint }}"
 THANOS_SIDECAR_PROMETHEUS_LOCATION="--prometheus.url={{ thanos_prometheus_url }}"
 THANOS_SIDECAR_DATABASE_CONFIG="--tsdb.path={{ thanos_prometheus_data_dir }}"
 THANOS_SIDECAR_LOGGING="--log.level {{ thanos_sidecar_log_level }}"
+THANOS_SIDECAR_CONFIG_FILE="--objstore.config-file {{ thanos_sidecar_config_file }}"
 
 PROMETHEUS_HOSTNAME="prometheus-{{ inventory_hostname }}"
 

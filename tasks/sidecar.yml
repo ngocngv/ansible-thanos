@@ -19,6 +19,12 @@
     - configuration
   notify: restart thanos-sidecar
 
+- name: "Sidecar: generate configuration file"
+  template:
+    src: thanos-s3-config.j2
+    dest: "{{ thanos_sidecar_config_file }}"
+  notify: restart thanos-sidecar
+
 - name: "Sidecar: Ensure thanos-sidecar is started"
   service:
     name: thanos-sidecar

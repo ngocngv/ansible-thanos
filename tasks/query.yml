@@ -10,6 +10,10 @@
     - reload systemd daemon
     - restart thanos-query
 
+- name: "Query: Reload systemd if thanos query changed"
+  systemd:
+    daemon_reload: true
+
 - name: "Query: Add defaults file"
   template:
     src: thanos-query-defaults.j2

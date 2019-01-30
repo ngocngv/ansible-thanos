@@ -3,6 +3,7 @@
   template:
     src: thanos-compactor.j2
     dest: /etc/systemd/system/thanos-compactor.service
+
   tags:
     - compactor
     - configuration
