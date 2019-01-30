@@ -3,7 +3,6 @@
   template:
     src: thanos-sidecar.j2
     dest: /etc/systemd/system/thanos-sidecar.service
-  register: sidecar_systemd
   tags:
     - sidecar
     - configuration

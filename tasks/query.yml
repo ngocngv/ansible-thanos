@@ -3,7 +3,6 @@
   template:
     src: thanos-query.j2
     dest: /etc/systemd/system/thanos-query.service
-  register: query_systemd
   tags:
     - query
     - configuration
